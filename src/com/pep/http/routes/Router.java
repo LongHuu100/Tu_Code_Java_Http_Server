@@ -247,7 +247,10 @@ public class Router implements HttpHandler {
      * @param reader the HTTP reader for parsing the incoming HTTP request
      * @param writer the HTTP writer for writing out the HTTP response
      * @throws IOException indicating an error occurred while reading in the request or writing out the responsez
-     * Được gọi từ com.pep.http.HttpExchangeHandler --> accept
+     *
+     * - Được gọi từ com.pep.http.HttpExchangeHandler --> accept
+     * - Tìm ra controller để xử lý dựa trên path request
+     * - invoke sử dụng reflection để thưc hiện gọi method trong controller
      */
     @Override
     public void accept(HttpReader reader, HttpWriter writer) throws IOException {
