@@ -124,6 +124,8 @@ public class Route {
         return (evaluatedPattern != null ? evaluatedPattern : (evaluatedPattern = compile())).matcher(uri).matches();
     }
 
+    /* Sử dụng inflection để thực thi method bên trong controller
+    * được gọi trong com.pep.http.routes.Router -> accept */
     public Object invoke(String uri) throws InvocationTargetException, IllegalAccessException {
         if (direct != null)
             return direct;

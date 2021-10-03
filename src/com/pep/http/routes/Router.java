@@ -251,7 +251,8 @@ public class Router implements HttpHandler {
     @Override
     public void accept(HttpReader reader, HttpWriter writer) throws IOException {
         try {
-            Object o = find(reader.readRequestType(), reader.readUri()).invoke(reader.readUri());
+            Object o = find(reader.readRequestType(), reader.readUri())
+                    .invoke(reader.readUri());
             if (!(o instanceof HttpHandler))
                 throw new RoutingException("Route return type mismatch. Expected: HttpHandler, Actual: " + (o == null ? null : o.getClass()));
             ((HttpHandler) o).accept(reader, writer);
