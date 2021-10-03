@@ -17,6 +17,9 @@ public class Server implements AutoCloseable {
         handler.accept(factory.create());
     }
 
+    /* Được gọi từ main thread
+    * Khi có một request kết nối đến thì factory sẽ sản xuất ra một Exchange có InputStream, OutputStream
+    * Exchange này sẽ được đẩy vào handler.accept, accept này chính là com.pep.http.HttpExchangeHandler */
     public void listen() throws IOException {
         while (!isClosed())
             handler.accept(factory.create());

@@ -18,6 +18,7 @@ public class HttpExchangeHandler implements ExchangeHandler {
         this.handler = handler;
     }
 
+    /* Được gọi từ com.pep.http.Server --> listen */
     @Override
     public void accept(Exchange exchange) throws IOException {
         HttpReader reader = new HttpReader(exchange.in);

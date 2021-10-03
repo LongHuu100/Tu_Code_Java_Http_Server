@@ -24,7 +24,7 @@ public class Status {
     }
 
     /* Trả về một lambda, lambda này sẽ chưa chạy cho đến khi gọi hàm accept của HttpHandler,
-     lambda này gọi accept trong com.pep.http.routes.Router -> accept*/
+     lambda này được gọi accept trong com.pep.http.routes.Router -> accept*/
     public static HttpHandler code(ResponseCode code, String data) {
         return (reader, writer) -> {
             writer.writeResponseHeader(HttpServer.VERSION, code);
